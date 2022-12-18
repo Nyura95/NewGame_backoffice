@@ -1,0 +1,9 @@
+#credential_picker_container {
+  top: 0px !important;
+  left: 20px;
+}
+
+#google_container>div {
+  margin-left: auto;
+  margin-right: auto;
+}

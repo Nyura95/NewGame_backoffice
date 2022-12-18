@@ -1,0 +1,209 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:typescript-sort-keys/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": [
+    "react-hooks",
+    "import",
+    "typescript-sort-keys"
+  ],
+  "rules": {
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "object": false,
+          "{}": false,
+          "Function": false
+        }
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-boolean-value": "off",
+    "jsx-no-lambda": "off",
+    "newline-before-return": "warn",
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignorePattern": "^import .*",
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          [
+            "builtin",
+            "external"
+          ],
+          [
+            "internal"
+          ],
+          [
+            "sibling",
+            "parent",
+            "index"
+          ]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [
+          {
+            "pattern": "modules",
+            "group": "internal"
+          },
+          {
+            "pattern": "modules/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "api",
+            "group": "internal"
+          },
+          {
+            "pattern": "api/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "actions",
+            "group": "internal"
+          },
+          {
+            "pattern": "actions/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "styles",
+            "group": "internal"
+          },
+          {
+            "pattern": "styles/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@cityscoot/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@native-common/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "assets/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "config/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "contexts/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "components",
+            "group": "internal"
+          },
+          {
+            "pattern": "components/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "design-system",
+            "group": "internal"
+          },
+          {
+            "pattern": "design-system/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "helpers/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "helpers",
+            "group": "internal"
+          },
+          {
+            "pattern": "hooks/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "hooks",
+            "group": "internal"
+          },
+          {
+            "pattern": "navigators/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "store",
+            "group": "internal"
+          },
+          {
+            "pattern": "store/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "screens",
+            "group": "internal"
+          },
+          {
+            "pattern": "screens/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "reducers",
+            "group": "internal"
+          },
+          {
+            "pattern": "reducers/**",
+            "group": "internal"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {}
+    }
+  }
+}

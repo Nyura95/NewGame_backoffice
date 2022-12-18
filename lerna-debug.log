@@ -1,0 +1,13 @@
+0 silly argv {
+0 silly argv   _: [ 'add' ],
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '6.0.1',
+0 silly argv   '$0': 'lerna',
+0 silly argv   pkg: '@fortawesome/pro-solid-svg-icons'
+0 silly argv }
+1 notice cli v6.0.1
+2 verbose rootPath /Users/alexiscourapied/Documents/projet/cityscoot_backoffice
+3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/@fortawesome%2fpro-solid-svg-icons - Not found
+3 error     at /Users/alexiscourapied/Documents/projet/cityscoot_backoffice/node_modules/npm-registry-fetch/lib/check-response.js:95:15
+3 error     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+3 error     at async RegistryFetcher.packument (/Users/alexiscourapied/Documents/projet/cityscoot_backoffice/node_modules/pacote/lib/registry.js:92:19)

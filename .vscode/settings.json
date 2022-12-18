@@ -1,0 +1,17 @@
+{
+  "eslint.packageManager": "yarn",
+  "eslint.format.enable": true,
+  "eslint.workingDirectories": [
+    "packages/native-client",
+    "packages/native-common"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
