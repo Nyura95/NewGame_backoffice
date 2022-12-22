@@ -2,7 +2,7 @@ import React, { useState, useMemo, useLayoutEffect } from 'react'
 
 import { Checkbox } from '../Form/Checkbox'
 
-type ISort = 'asc' | 'desc' | ''
+export type ISort = 'asc' | 'desc' | ''
 const Sort: ISort[] = ['', 'asc', 'desc']
 
 const nextSort = (current: ISort): ISort => {
@@ -181,7 +181,7 @@ export const Table: React.FC<IProps> = ({
                             onClick ? ' cursor-pointer' : ''
                           }`}
                           onClick={() => (onClick ? onClick(k, d) : null)}>
-                          {d}
+                          {d.toString()}
                         </td>
                       ))}
                     </tr>

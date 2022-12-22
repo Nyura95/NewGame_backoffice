@@ -7,6 +7,7 @@ import { NameIcon, LayoutBasic, TypeNavbar, TypeTheme } from '@cityscoot/compone
 
 import { AppDispatch } from '../../app/store'
 import { store } from '../../app/store'
+import { reset } from '../../features/account/accountSlice'
 import { logout } from '../../features/auth/authSlice'
 import {
   selectSettings,
@@ -69,7 +70,10 @@ export const Navbar: React.FC = () => {
         {
           icon: NameIcon.logout,
           mobile: false,
-          onClick: () => dispatch(logout()),
+          onClick: () => {
+            dispatch(reset())
+            dispatch(logout())
+          },
         },
       ]}
     />

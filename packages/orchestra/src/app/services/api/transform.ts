@@ -22,3 +22,43 @@ export const errorHandlerAuth = (response: FetchBaseQueryError): IErrorHandler =
     i18n_path: 'login',
   }
 }
+
+export const errorHandlerAccount = (response: FetchBaseQueryError): IErrorHandler => {
+  const data = response.data as IResponseAPI<string>
+
+  if (data) {
+    return {
+      status: response.status,
+      comment: data.Comment,
+      i18n_message: data.I18nComment,
+      i18n_path: 'account',
+    }
+  }
+
+  return {
+    status: response.status,
+    comment: 'Failed',
+    i18n_message: `${response.status}`,
+    i18n_path: 'account',
+  }
+}
+
+export const errorHandlerResource = (response: FetchBaseQueryError): IErrorHandler => {
+  const data = response.data as IResponseAPI<string>
+
+  if (data) {
+    return {
+      status: response.status,
+      comment: data.Comment,
+      i18n_message: data.I18nComment,
+      i18n_path: 'resource',
+    }
+  }
+
+  return {
+    status: response.status,
+    comment: 'Failed',
+    i18n_message: `${response.status}`,
+    i18n_path: 'resource',
+  }
+}

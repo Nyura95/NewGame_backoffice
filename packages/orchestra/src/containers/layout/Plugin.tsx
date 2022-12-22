@@ -14,9 +14,12 @@ import {
   TypeTheme,
   ColorButton,
   Input,
+  TypeAlert,
 } from '@cityscoot/components'
 
 import { AppDispatch } from '../../app/store'
+import { selectAuth } from '../../features/auth/authSlice'
+import { add } from '../../features/notify/notifySlice'
 import {
   selectSettings,
   updateAppTheme,
@@ -26,10 +29,12 @@ import {
   updateSidebarColor,
   updateSidebarType,
 } from '../../features/settings/settingsSlice'
+import { COPY_SUCCESS } from '../../i18n/const'
 
 export const Plugins: React.FC = () => {
   const { operatorOpen, sidebarType, appTheme, navbarFixed, intervalRefetch } =
     useSelector(selectSettings)
+  const { token } = useSelector(selectAuth)
   const dispatch = useDispatch<AppDispatch>()
   const [interval, setInterval] = useState(intervalRefetch / 1000)
 
@@ -177,6 +182,21 @@ export const Plugins: React.FC = () => {
                 value={interval}
                 onChange={v => setInterval(Number(v))}
               />
+            </div>
+          </div>
+          <hr className="horizontal my-1 light" />
+          <div className="d-flex">
+            <h6 className="mb-0">Token</h6>
+            <div className="form-check form-switch ps-0 ms-auto my-auto">
+              <Button
+                outline
+                className="me-2"
+                onClick={() => {
+                  navigator.clipboard.writeText(token)
+                  dispatch(add({ i18n: COPY_SUCCESS, type: TypeAlert.success }))
+                }}>
+                {token}
+              </Button>
             </div>
           </div>
         </Card.Body>

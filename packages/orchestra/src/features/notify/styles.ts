@@ -10,7 +10,7 @@ export const Container = styled.div`
   top: 15px;
   right: 15px;
   gap: 30px;
-  z-index: 1000;
+  z-index: 1030;
   &::-webkit-scrollbar {
     display: none;
   }

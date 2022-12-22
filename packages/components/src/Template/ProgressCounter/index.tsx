@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 
 interface IProps {
+  className?: string
   label?: string
   stop?: boolean
   timer: number
 }
 
-export const ProgressCounter: React.FC<IProps> = ({ label, stop = false, timer }) => {
+export const ProgressCounter: React.FC<IProps> = ({
+  className = '',
+  label,
+  stop = false,
+  timer,
+}) => {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -33,7 +39,7 @@ export const ProgressCounter: React.FC<IProps> = ({ label, stop = false, timer }
   }, [stop, timer])
 
   return (
-    <div className="progress-wrapper">
+    <div className={`progress-wrapper ${className}`}>
       {label && (
         <div className="progress-info">
           <div className="progress-percentage">

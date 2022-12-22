@@ -7,7 +7,7 @@ interface IProps {
 }
 
 const Group: React.FC<IProps> = ({ children }) => {
-  return <div className="list-group">{children}</div>
+  return <ul className="list-group">{children}</ul>
 }
 
 export const List = Object.assign(Group, {

@@ -13,6 +13,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+import account from '../features/account/accountSlice'
 import auth from '../features/auth/authSlice'
 import { NOTIFY } from '../features/const'
 import notify from '../features/notify/notifySlice'
@@ -32,6 +33,7 @@ const persistedReducer = persistReducer(
     [api.reducerPath]: api.reducer,
     auth,
     notify,
+    account,
     settings,
   }),
 )

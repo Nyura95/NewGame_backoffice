@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS } from './const'
+import { AUTH_SUCCESS, COPY_SUCCESS } from './const'
 import { ITranslation } from './interface'
 
 export const fr: ITranslation = {
@@ -37,6 +37,10 @@ export const fr: ITranslation = {
     [AUTH_SUCCESS]: {
       title: 'Authentification google',
       message: 'Une erreur est survenu avec google',
+    },
+    [COPY_SUCCESS]: {
+      title: 'Copie clipboard',
+      message: 'Le token à bien été copier',
     },
   },
   errors: {

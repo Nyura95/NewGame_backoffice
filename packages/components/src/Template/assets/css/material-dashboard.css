@@ -28392,6 +28392,9 @@ pre[class*="language-"] {
 .z-index2 {
   z-index: 2;
 }
+.z-index3 {
+  z-index: 3;
+}
 
 @keyframes gradient {
   0% {

@@ -1,1 +1,2 @@
 export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const COPY_SUCCESS = 'COPY_SUCCESS'

@@ -1,3 +1,4 @@
+export const ACCOUNT = 'account'
 export const AUTH = 'auth'
 export const NOTIFY = 'notify'
 export const SETTINGS = 'settings'

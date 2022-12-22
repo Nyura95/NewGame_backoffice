@@ -32,6 +32,7 @@ export const Notifications: React.FC = () => {
           key={k}
           title={x.title}
           type={x.type}
+          className="z-index3"
           onClick={() => x.hash && dispatch(remove(x.hash))}>
           {x.message}
         </Alerts>
