@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS, COPY_SUCCESS } from './const'
+import { AUTH_SUCCESS, COPY_SUCCESS, CREATE_SUCCESS } from './const'
 import { ITranslation } from './interface'
 
 export const fr: ITranslation = {
@@ -34,6 +34,10 @@ export const fr: ITranslation = {
     info: 'Affichage de {from} à {to} pour {total} éléments ({sync})',
   },
   notifications: {
+    [CREATE_SUCCESS]: {
+      title: 'Création',
+      message: 'La création du compte à été faite',
+    },
     [AUTH_SUCCESS]: {
       title: 'Authentification google',
       message: 'Une erreur est survenu avec google',
@@ -52,10 +56,6 @@ export const fr: ITranslation = {
       title: 'Authentification',
       message: 'default message',
       ERROR_LOGIN: 'Erreur de mot de passe ou compte inexistant',
-    },
-    scooters: {
-      title: 'Scooter API',
-      ERROR_AUTH: "Vous n'êtes pas autoriser à effectuer cette action",
     },
   },
 }

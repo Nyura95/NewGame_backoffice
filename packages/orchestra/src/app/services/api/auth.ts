@@ -1,5 +1,5 @@
 import { api } from '.'
-import { IOauthResponse, IResponseAPI } from './interface'
+import { IAccount, IOauthResponse, IResponseAPI } from './interface'
 import { errorHandlerAuth } from './transform'
 
 export const authApi = api.injectEndpoints({
@@ -20,11 +20,19 @@ export const authApi = api.injectEndpoints({
       }),
       transformErrorResponse: errorHandlerAuth,
     }),
+    create: build.mutation<IResponseAPI<IAccount>, { email: string; password: string }>({
+      query: credentials => ({
+        url: '/api/v1/login/create',
+        method: 'POST',
+        body: credentials,
+      }),
+      transformErrorResponse: errorHandlerAuth,
+    }),
   }),
 })
 
-export const { useLoginMutation, useRefreshMutation } = authApi
+export const { useLoginMutation, useRefreshMutation, useCreateMutation } = authApi
 
 export const {
-  endpoints: { login, refresh },
+  endpoints: { login, refresh, create },
 } = authApi

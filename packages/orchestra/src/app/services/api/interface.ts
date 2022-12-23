@@ -34,7 +34,7 @@ export interface IPlanet {
   UpdatedAt: string
 }
 
-export interface IBuilding {
+export interface IPlanetBuilding {
   CanBeBuild: boolean
   CreatedAt: string
   Group: string
@@ -49,7 +49,17 @@ export interface IBuilding {
   UpdatedAt: string
 }
 
+export interface IBuilding {
+  CreatedAt: string
+  ID: number
+  IDBuildingGroup: number
+  InitialBuildingTime: number
+  Name: string
+  UpdatedAt: string
+}
+
 export interface IBuildingConstruct {
+  Building: IBuilding
   CreatedAt: string
   DateEnd: string
   ID: number
@@ -67,6 +77,7 @@ export interface IResearchConstruct {
   IDAccountResearch: number
   IDPlanet: number
   IDStatusResearch: number
+  Research: IResearch
   UpdatedAt: string
 }
 
@@ -103,7 +114,7 @@ export interface IPlanet {
   Name: string
 }
 
-export interface IResearch {
+export interface IAccountResearch {
   CanBeResearch: boolean
   CreatedAt: string
   Group: string
@@ -114,6 +125,16 @@ export interface IResearch {
   LevelUpdate: number
   Name: string
   NextLevel: INextLevel
+  Rul: IResearchConstruct
+  UpdatedAt: string
+}
+
+export interface IResearch {
+  CreatedAt: string
+  ID: number
+  IDResearchGroup: number
+  InitialResearchTime: number
+  Name: string
   UpdatedAt: string
 }
 

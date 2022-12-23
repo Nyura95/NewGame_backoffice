@@ -6,9 +6,11 @@ import { Avatar, Col, Row, Header, TypeColor, Card } from '@cityscoot/components
 
 import Face from '../../assets/img/bruce-mars.jpg'
 import Image from '../../assets/img/office-dark.jpg'
+import Resources from '../planet/Resources'
 import { selectAccount } from './accountSlice'
+import Construct from './Construct'
 import Planets from './Planets'
-import Research from './Research'
+import Researchs from './Researchs'
 
 const Home: React.FC = () => {
   const { id, email } = useSelector(selectAccount)
@@ -37,11 +39,17 @@ const Home: React.FC = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col col={6}>
-        <Planets />
+      <Col col={12}>
+        <Construct />
       </Col>
       <Col col={6}>
-        <Research />
+        <Resources />
+      </Col>
+      <Col col={6}>
+        <Researchs />
+      </Col>
+      <Col col={6}>
+        <Planets />
       </Col>
     </Row>
   )

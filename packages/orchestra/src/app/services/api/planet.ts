@@ -1,5 +1,5 @@
 import { api } from '.'
-import { IBuilding, IPlanet, IResponseAPI, IResource, IBuildingConstruct } from './interface'
+import { IPlanetBuilding, IPlanet, IResponseAPI, IResource, IBuildingConstruct } from './interface'
 import { errorHandlerAccount } from './transform'
 
 export const planetApi = api.injectEndpoints({
@@ -27,7 +27,7 @@ export const planetApi = api.injectEndpoints({
       providesTags: () => [{ type: 'resources' }],
       transformErrorResponse: errorHandlerAccount,
     }),
-    getBuilding: build.query<IResponseAPI<IBuilding[]>, {}>({
+    getBuilding: build.query<IResponseAPI<IPlanetBuilding[]>, {}>({
       query: () => ({
         url: 'api/v1/planet/building',
         method: 'GET',

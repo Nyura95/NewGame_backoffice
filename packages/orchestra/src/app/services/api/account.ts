@@ -1,5 +1,11 @@
 import { api } from '.'
-import { IAccount, IResponseAPI, IAccountPublic, IResearch, IResearchConstruct } from './interface'
+import {
+  IAccount,
+  IResponseAPI,
+  IAccountPublic,
+  IAccountResearch,
+  IResearchConstruct,
+} from './interface'
 import { errorHandlerAccount } from './transform'
 
 export const accountApi = api.injectEndpoints({
@@ -18,7 +24,7 @@ export const accountApi = api.injectEndpoints({
       }),
       transformErrorResponse: errorHandlerAccount,
     }),
-    getResearch: build.query<IResponseAPI<IResearch[]>, {}>({
+    getResearch: build.query<IResponseAPI<IAccountResearch[]>, {}>({
       query: () => ({
         url: 'api/v1/account/research',
         method: 'GET',
@@ -26,7 +32,7 @@ export const accountApi = api.injectEndpoints({
       providesTags: () => [{ type: 'research' }],
       transformErrorResponse: errorHandlerAccount,
     }),
-    getConstructResearchList: build.mutation<IResponseAPI<IResearchConstruct>, {}>({
+    getConstructResearchList: build.query<IResponseAPI<IResearchConstruct | string>, {}>({
       query: () => ({
         url: `api/v1/account/research/construct`,
         method: 'GET',
@@ -36,7 +42,7 @@ export const accountApi = api.injectEndpoints({
     startConstructResearch: build.mutation<IResponseAPI<string>, number>({
       query: id_account_research => ({
         url: `api/v1/account/research/construct/${id_account_research}`,
-        method: 'GET',
+        method: 'POST',
       }),
       transformErrorResponse: errorHandlerAccount,
     }),
@@ -54,7 +60,7 @@ export const {
   useGetAccountMutation,
   useGetAnotherAccountMutation,
   useGetResearchQuery,
-  useGetConstructResearchListMutation,
+  useGetConstructResearchListQuery,
   useStartConstructResearchMutation,
   useCancelConstructResearchMutation,
 } = accountApi

@@ -3,14 +3,14 @@ import React, { useCallback } from 'react'
 import { Card, List, Button, ColorButton } from '@cityscoot/components'
 import { ButtonRow } from '@cityscoot/components/src/Template/Form/ButtonRow'
 
-import { IBuilding } from '../../app/services/api/interface'
+import { IPlanetBuilding } from '../../app/services/api/interface'
 import {
   useStartConstructBuildingMutation,
   useCancelConstructBuildingMutation,
 } from '../../app/services/api/planet'
 
 interface IProps {
-  building: IBuilding
+  building: IPlanetBuilding
 }
 
 const Resource: React.FC<IProps> = ({ building }) => {

@@ -4,15 +4,15 @@ import { Card, List, Button, ColorButton, Spinner, TypeColor } from '@cityscoot/
 import { ButtonRow } from '@cityscoot/components/src/Template/Form/ButtonRow'
 
 import {
-  useCancelConstructBuildingMutation,
-  useGetConstructBuildingListQuery,
-} from '../../app/services/api/planet'
+  useGetConstructResearchListQuery,
+  useCancelConstructResearchMutation,
+} from '../../app/services/api/account'
 import { getMilliseconds, convertMsToHM } from '../../helpers/date'
 
 const Construct: React.FC = () => {
-  const { data, isFetching, refetch } = useGetConstructBuildingListQuery({})
+  const { data, isFetching, refetch } = useGetConstructResearchListQuery({})
   const [seconds, setSeconds] = useState(0)
-  const [cancelConstruct, { isLoading }] = useCancelConstructBuildingMutation()
+  const [cancelResearch, { isLoading }] = useCancelConstructResearchMutation()
 
   useEffect(() => {
     if (seconds > 0) {
@@ -35,7 +35,7 @@ const Construct: React.FC = () => {
   return (
     <Card className={'mx-3 mx-md-4 mt-3'} isBusy={isLoading || isFetching}>
       <Card.Header>
-        <Card.Header.Title>Construction</Card.Header.Title>
+        <Card.Header.Title>Research</Card.Header.Title>
         <div className="position-absolute text-center end-0 my-auto">
           <Spinner
             type="grow"
@@ -53,7 +53,7 @@ const Construct: React.FC = () => {
             <List>
               <List.Li>
                 <strong>Nom: </strong>
-                {data.Data.Building.Name}
+                {data.Data.Research.Name}
               </List.Li>
               <List.Li>
                 <strong>{convertMsToHM(seconds)} secondes</strong>
@@ -65,7 +65,7 @@ const Construct: React.FC = () => {
               <Button
                 color={ColorButton.danger}
                 onClick={async () => {
-                  await cancelConstruct({}).unwrap()
+                  await cancelResearch({}).unwrap()
                   refetch()
                 }}>
                 Cancel

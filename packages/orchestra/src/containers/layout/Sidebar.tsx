@@ -32,7 +32,7 @@ export const Side: React.FC = () => {
       color={sidebarColor}
       type={sidebarType}
       colorText={colorText}
-      title="Orchestra V2"
+      title="NewGame"
       body="body"
       onClose={() => dispatch(updateSidebarMobile(!sidebarMobileOpen))}>
       <Sidebar.Line colorText={colorText}>Pages</Sidebar.Line>
