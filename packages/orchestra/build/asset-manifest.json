@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.04608567.css",
+    "main.js": "/static/js/main.4e437568.js",
+    "static/js/415.1f65cc26.chunk.js": "/static/js/415.1f65cc26.chunk.js",
+    "static/media/bg-pricing.jpg": "/static/media/bg-pricing.90e3b6f2b068b6bc4ec0.jpg",
+    "static/media/nucleo-icons.svg": "/static/media/nucleo-icons.01ebecaf50461162d4bc.svg",
+    "static/media/office-dark.jpg": "/static/media/office-dark.1a5b950b43ac88b815d5.jpg",
+    "static/media/bruce-mars.jpg": "/static/media/bruce-mars.8a606c4a6dab54c9ceff.jpg",
+    "static/media/nucleo-icons.eot": "/static/media/nucleo-icons.19abb5402a664606b14c.eot",
+    "static/media/nucleo-icons.ttf": "/static/media/nucleo-icons.d6a66724e7a7bf1bba65.ttf",
+    "static/media/nucleo-icons.woff": "/static/media/nucleo-icons.c82c9b7c40130b7116d3.woff",
+    "static/media/nucleo-icons.woff2": "/static/media/nucleo-icons.cba267483aa6a7cb6e33.woff2",
+    "index.html": "/index.html",
+    "main.04608567.css.map": "/static/css/main.04608567.css.map",
+    "main.4e437568.js.map": "/static/js/main.4e437568.js.map",
+    "415.1f65cc26.chunk.js.map": "/static/js/415.1f65cc26.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04608567.css",
+    "static/js/main.4e437568.js"
+  ]
+}
