@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { Card, List, Button, ColorButton, Spinner, TypeColor } from '@cityscoot/components'
 import { ButtonRow } from '@cityscoot/components/src/Template/Form/ButtonRow'
@@ -14,6 +14,26 @@ const Construct: React.FC = () => {
   const [seconds, setSeconds] = useState(0)
   const [cancelConstruct, { isLoading }] = useCancelConstructBuildingMutation()
 
+  const current = useMemo(() => {
+    if (data) {
+      if (typeof data.Data === 'string') return undefined
+
+      return data.Data.find(x => x.IDStatus === 2)
+    }
+
+    return undefined
+  }, [data])
+
+  const inwait = useMemo(() => {
+    if (data) {
+      if (typeof data.Data === 'string') return undefined
+
+      return data.Data.filter(x => x.IDStatus === 1)
+    }
+
+    return undefined
+  }, [data])
+
   useEffect(() => {
     if (seconds > 0) {
       const timeout = setTimeout(() => {
@@ -27,10 +47,10 @@ const Construct: React.FC = () => {
   }, [seconds])
 
   useEffect(() => {
-    if (data && typeof data.Data !== 'string') {
-      setSeconds(getMilliseconds(new Date(data.ServerTime), new Date(data.Data.DateEnd)))
+    if (data && current) {
+      setSeconds(getMilliseconds(new Date(data.ServerTime), new Date(current.DateEnd)))
     }
-  }, [data])
+  }, [data, current])
 
   return (
     <Card className={'mx-3 mx-md-4 mt-3'} isBusy={isLoading || isFetching}>
@@ -46,14 +66,14 @@ const Construct: React.FC = () => {
           />
         </div>
       </Card.Header>
-      {data && typeof data.Data === 'string' && <Card.Body>Aucune construction en cours</Card.Body>}
-      {data && typeof data.Data !== 'string' && (
+      {!current && <Card.Body>Aucune construction en cours</Card.Body>}
+      {current && (
         <>
           <Card.Body>
             <List>
               <List.Li>
                 <strong>Nom: </strong>
-                {data.Data.Building.Name}
+                {current.Building.Name}
               </List.Li>
               <List.Li>
                 <strong>{convertMsToHM(seconds)} secondes</strong>
@@ -73,6 +93,27 @@ const Construct: React.FC = () => {
             </ButtonRow>
           </Card.Footer>
         </>
+      )}
+      {inwait && inwait.length > 0 && (
+        <Card.Footer>
+          <List>
+            <List.Li>
+              <strong>Construction en attente: </strong>
+              {inwait.length}
+            </List.Li>
+            <List.Li>
+              <strong>Prochain: </strong>
+              <List>
+                {inwait.map((x, k) => (
+                  <List.Li key={k}>
+                    <strong>Nom: </strong>
+                    {x.Building.Name}
+                  </List.Li>
+                ))}
+              </List>
+            </List.Li>
+          </List>
+        </Card.Footer>
       )}
     </Card>
   )

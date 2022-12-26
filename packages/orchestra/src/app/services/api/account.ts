@@ -32,7 +32,7 @@ export const accountApi = api.injectEndpoints({
       providesTags: () => [{ type: 'research' }],
       transformErrorResponse: errorHandlerAccount,
     }),
-    getConstructResearchList: build.query<IResponseAPI<IResearchConstruct | string>, {}>({
+    getConstructResearchList: build.query<IResponseAPI<IResearchConstruct[] | string>, {}>({
       query: () => ({
         url: `api/v1/account/research/construct`,
         method: 'GET',

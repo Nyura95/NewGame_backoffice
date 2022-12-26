@@ -17,6 +17,12 @@ export const planetApi = api.injectEndpoints({
         url: `api/v1/planet/switch/${id_planet}`,
         method: 'GET',
       }),
+      invalidatesTags: () => [
+        { type: 'research' },
+        { type: 'building' },
+        { type: 'planet' },
+        { type: 'resources' },
+      ],
       transformErrorResponse: errorHandlerAccount,
     }),
     getResource: build.query<IResponseAPI<IResource[]>, {}>({
@@ -35,7 +41,7 @@ export const planetApi = api.injectEndpoints({
       providesTags: () => [{ type: 'building' }],
       transformErrorResponse: errorHandlerAccount,
     }),
-    getConstructBuildingList: build.query<IResponseAPI<IBuildingConstruct | string>, {}>({
+    getConstructBuildingList: build.query<IResponseAPI<IBuildingConstruct[] | string>, {}>({
       query: () => ({
         url: `api/v1/planet/building/construct`,
         method: 'GET',

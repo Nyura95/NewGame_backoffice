@@ -65,7 +65,7 @@ export interface IBuildingConstruct {
   ID: number
   IDPlanet: number
   IDPlanetBuilding: number
-  IDStatusBuilding: number
+  IDStatus: number
   UpdatedAt: string
 }
 
@@ -76,9 +76,11 @@ export interface IResearchConstruct {
   IDAccount: number
   IDAccountResearch: number
   IDPlanet: number
-  IDStatusResearch: number
+  IDResearch: number
+  IDStatus: number
   Research: IResearch
   UpdatedAt: string
+  Waiting: number
 }
 
 export interface IResource {
