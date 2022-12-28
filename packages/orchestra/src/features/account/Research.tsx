@@ -60,6 +60,17 @@ const Resource: React.FC<IProps> = ({ research }) => {
               </List.Li>
             </List>
           </List.Li>
+          <List.Li>
+            <strong>Research required: </strong>
+            <List>
+              {research.Required.Research.map((x, k) => (
+                <List.Li key={k}>
+                  <strong>{x.IDResearchRequired}: </strong>
+                  {x.LevelRequired}
+                </List.Li>
+              ))}
+            </List>
+          </List.Li>
         </List>
       </Card.Body>
       <Card.Footer>

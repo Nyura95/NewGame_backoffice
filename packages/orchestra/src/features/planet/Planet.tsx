@@ -6,6 +6,7 @@ import { useGetPlanetQuery } from '../../app/services/api/planet'
 import Face from '../../assets/img/bruce-mars.jpg'
 import Image from '../../assets/img/office-dark.jpg'
 import Buildings from './Buildings'
+import Cargo from './Cargo'
 import Construct from './Construct'
 import Resources from './Resources'
 
@@ -42,6 +43,9 @@ const Home: React.FC = () => {
       </Col>
       <Col lg={6} md={12}>
         <Buildings />
+      </Col>
+      <Col lg={6} md={12}>
+        <Cargo />
       </Col>
     </Row>
   )

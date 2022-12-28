@@ -60,6 +60,28 @@ const Resource: React.FC<IProps> = ({ building }) => {
               </List.Li>
             </List>
           </List.Li>
+          <List.Li>
+            <strong>Building required: </strong>
+            <List>
+              {building.Required.Building.map((x, k) => (
+                <List.Li key={k}>
+                  <strong>{x.IDBuildingRequired}: </strong>
+                  {x.LevelRequired}
+                </List.Li>
+              ))}
+            </List>
+          </List.Li>
+          <List.Li>
+            <strong>Research required: </strong>
+            <List>
+              {building.Required.Research.map((x, k) => (
+                <List.Li key={k}>
+                  <strong>{x.IDResearchRequired}: </strong>
+                  {x.LevelRequired}
+                </List.Li>
+              ))}
+            </List>
+          </List.Li>
         </List>
       </Card.Body>
       <Card.Footer>

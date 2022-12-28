@@ -21,7 +21,7 @@ import settings from '../features/settings/settingsSlice'
 import { api } from './services/api'
 
 const persistConfig = {
-  key: 'root',
+  key: 'nyustore',
   version: 1,
   blacklist: [NOTIFY, api.reducerPath],
   storage,

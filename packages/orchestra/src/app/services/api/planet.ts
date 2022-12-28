@@ -1,5 +1,12 @@
 import { api } from '.'
-import { IPlanetBuilding, IPlanet, IResponseAPI, IResource, IBuildingConstruct } from './interface'
+import {
+  IPlanetBuilding,
+  IPlanet,
+  IResponseAPI,
+  IResource,
+  IBuildingConstruct,
+  ICargo,
+} from './interface'
 import { errorHandlerAccount } from './transform'
 
 export const planetApi = api.injectEndpoints({
@@ -62,6 +69,13 @@ export const planetApi = api.injectEndpoints({
       }),
       transformErrorResponse: errorHandlerAccount,
     }),
+    getCargo: build.query<IResponseAPI<ICargo>, {}>({
+      query: () => ({
+        url: `api/v1/planet/cargo`,
+        method: 'GET',
+      }),
+      transformErrorResponse: errorHandlerAccount,
+    }),
   }),
 })
 
@@ -73,6 +87,7 @@ export const {
   useGetConstructBuildingListQuery,
   useStartConstructBuildingMutation,
   useCancelConstructBuildingMutation,
+  useGetCargoQuery,
 } = planetApi
 
 export const {
@@ -84,5 +99,6 @@ export const {
     getConstructBuildingList,
     startConstructBuilding,
     cancelConstructBuilding,
+    getCargo,
   },
 } = planetApi

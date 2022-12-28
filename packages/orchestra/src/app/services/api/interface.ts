@@ -10,6 +10,77 @@ export interface IResponseAPI<T> {
   Version: string
 }
 
+export interface ICargo {
+  Container: IModuleCreated[]
+  CreatedAt: string
+  CurrentWeight: number
+  ID: number
+  Name: string
+  UpdatedAt: string
+  Weight: number
+}
+
+export interface IModuleCreated {
+  CreatedAt: string
+  Damage: IDamage[]
+  Healing: IHealing[]
+  ID: number
+  IDCargo: number
+  IDModule: number
+  Layers: ILayer[]
+  Module: IModule
+  UpdatedAt: string
+}
+
+export interface IDamage {
+  CreatedAt: string
+  ID: number
+  IDModule: number
+  IDResistance: number
+  UpdatedAt: string
+  Value: number
+}
+
+export interface IHealing {
+  CreatedAt: string
+  ID: number
+  IDModule: number
+  IDResistance: number
+  UpdatedAt: string
+  Value: number
+}
+
+export interface ILayer {
+  CreatedAt: string
+  ID: number
+  IDLayer: number
+  IDModule: number
+  Resistances: IResistance[]
+  UpdatedAt: string
+  Value: number
+}
+
+export interface IResistance {
+  CreatedAt: string
+  ID: number
+  IDLayer: number
+  IDModule: number
+  IDResistance: number
+  UpdatedAt: string
+  Value: number
+}
+
+export interface IModule {
+  CreatedAt: string
+  ID: number
+  IDSize: number
+  Name: string
+  Resolution: number
+  Speed: number
+  UpdatedAt: string
+  Weight: number
+}
+
 export interface IOauthResponse {
   RefreshToken: string
   Token: string
@@ -46,6 +117,28 @@ export interface IPlanetBuilding {
   LevelUpdate: number
   Name: string
   NextLevel: INextLevel
+  Required: {
+    Building: IBuildingRequired[]
+    Research: IResearchRequired[]
+  }
+  UpdatedAt: string
+}
+
+export interface IResearchRequired {
+  CreatedAt: string
+  ID: number
+  IDBuilding: number
+  IDResearchRequired: number
+  LevelRequired: number
+  UpdatedAt: string
+}
+
+export interface IBuildingRequired {
+  CreatedAt: string
+  ID: number
+  IDBuilding: number
+  IDBuildingRequired: number
+  LevelRequired: number
   UpdatedAt: string
 }
 
@@ -127,6 +220,9 @@ export interface IAccountResearch {
   LevelUpdate: number
   Name: string
   NextLevel: INextLevel
+  Required: {
+    Research: IResearchRequired[]
+  }
   Rul: IResearchConstruct
   UpdatedAt: string
 }
